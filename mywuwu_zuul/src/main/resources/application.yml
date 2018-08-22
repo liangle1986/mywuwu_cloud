@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: mywuwu-zuul
+server:
+  port: 8073
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka/
+
+# routes to serviceId
+zuul:
+#  ignored-services: '*'
+  routes:
+    mywuwu_service:
+       path: /mywuwu_service/**
+       serviceId: mywuwu-service
+    mywuwu_ribbon:
+      path: /mywuwu_ribbon/**
+      serviceId: mywuwu-ribbon
+    muwuwu_service_a:
+      path: /muwuwu_service_a/**
+      serviceId: muwuwu-service-a
+
+  host:
+    socket-timeout-millis: 30000
+    connect-timeout-millis: 30000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000

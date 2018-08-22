@@ -1,0 +1,65 @@
+spring:
+  application:
+    name: mywuwu-zuul-cas
+server:
+  port: 8073
+security:
+  basic:
+    enabled: false
+  user:
+    password: le5201314
+  ignored: /
+  sessions: never
+oauth2:
+    sso:
+      loginPath: /login
+    client:
+      clientId: 8ebb54316fa55103b5f5
+      clientSecret: f4cb630754022200eadecd7b8c5be7f06bf071c4
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+    resource:
+      userInfoUri: http://127.0.0.1:8073/user
+      preferTokenInfo: false
+management:
+  security:
+    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka/
+
+
+# routes to serviceId
+zuul:
+#  ignored-services: '*'
+#  routes:
+#    mywuwu_service:
+#       path: /mywuwu_service/**
+#       serviceId: mywuwu-service
+#    mywuwu_ribbon:
+#      path: /mywuwu_ribbon/**
+#      serviceId: mywuwu-ribbon
+#    muwuwu_service_a:
+#      path: /muwuwu_service_a/**
+#      serviceId: muwuwu-service-a
+  host:
+    socket-timeout-millis: 30000
+    connect-timeout-millis: 30000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 600000
+ribbon:
+   #如果设置为1那么就是1+1=2.如果设置3那么就是3次
+  MaxAutoRetries: 0
+  #MaxAutoRetriesNextServer: 1
+  ReadTimeout: 30000
+  ConnectTimeout: 30000
+
+#logging:
+#  config: classpath:logback.xml

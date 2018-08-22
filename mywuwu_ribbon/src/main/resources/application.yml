@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: mywuwu-ribbon
+server:
+  port: 8072
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8071/eureka/
+
+service-B:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRule
+#zuul:
+#  host:
+#    socket-timeout-millis: 600000
+#    connect-timeout-millis: 600000
+#
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 600000
+#ribbon:
+#  ReadTimeout: 600000
+#  ConnectTimeout: 600000
+
+#ribbon.eureka.enabled=false

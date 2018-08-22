@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="muwuwu_service_a" />
+        <module name="mywuwu-player" />
+        <module name="mywuwu-power-ribbon" />
+        <module name="mywuwu_eureka" />
+        <module name="mywuwu_ribbon" />
+        <module name="mywuwu_service" />
+        <module name="mywuwu_zuul" />
+        <module name="mywuwu_zuul_cas" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mywuwu-power-dao" target="1.8" />
+      <module name="mywuwu-power-sevice" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
