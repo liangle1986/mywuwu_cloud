@@ -7,6 +7,13 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8071/eureka/
+    healthcheck:
+        #开启健康检查（需要spring-boot-starter-actuator依赖）
+      enabled: true
+    registry-fetch-interval-seconds: 2
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
 
 # routes to serviceId
 zuul:
@@ -36,3 +43,7 @@ hystrix:
 ribbon:
   ReadTimeout: 30000
   ConnectTimeout: 30000
+  #对当前服务的重试次数
+  MaxAutoRetries: 2
+#切换相同Server的次数
+  MaxAutoRetriesNextServer: 0
