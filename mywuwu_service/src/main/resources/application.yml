@@ -10,3 +10,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8071/eureka/
+    # 测试时关闭自我保护机制，保证不可用服务及时踢出
+  server:
+    enable-self-preservation: false
+    #清理无效服务间隔（单位毫秒，默认是60*1000）
+    eviction-interval-timer-in-ms: 30000
